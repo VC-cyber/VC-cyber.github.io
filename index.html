@@ -9,17 +9,18 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f0f8ff; /* Light blue background */
         }
         header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 0;
+            background-color: #2774AE; /* UCLA Blue */
+            color: #FFD100; /* UCLA Gold */
+            padding: 20px;
             text-align: center;
         }
         nav {
             display: flex;
             justify-content: center;
-            background-color: #333;
+            background-color: #005B99; /* Darker UCLA Blue */
         }
         nav a {
             color: white;
@@ -28,8 +29,8 @@
             text-align: center;
         }
         nav a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #FFD100; /* UCLA Gold */
+            color: #005B99; /* Darker UCLA Blue */
         }
         section {
             padding: 20px;
@@ -42,6 +43,9 @@
         }
         .tab-content.active {
             display: block;
+        }
+        h2 {
+            color: #2774AE; /* UCLA Blue */
         }
     </style>
     <script>
@@ -83,22 +87,30 @@
     <section id="projects" class="tab-content">
         <h2>Projects</h2>
         <ul>
-            <li>Project 1 - Description pending</li>
-            <li>Project 2 - Description pending</li>
-            <li>Project 3 - Description pending</li>
-            <li>Project 4 - Description pending</li>
+            <li>
+                <strong>Drowsy Driving Detection project | Python - March 2022</strong>
+                <p>Program to detect if a driver is alert and awake using computer vision. OpenCV was used to scan facial landmarks of the driver’s face to determine if they are drowsy.</p>
+            </li>
+            <li>
+                <strong>Classifying handwritten digits | Python - December 2023</strong>
+                <p>Program with a 98% accuracy to classify a digit 0-9 created using a CNN in python. Using the MNIST dataset and had to finetune the hyperparameters to maximize accuracy.</p>
+            </li>
+            <li>
+                <strong>GPS of Los Angeles | C++ - March 2024</strong>
+                <p>Created my own hashmap objects and used the A* algorithm to create a GPS from major locations in LA area. Created a tour generator with major locations so the program describes from start to destination all the major locations I go through with their respective descriptions.</p>
+            </li>
+            <li>
+                <strong>Music classifier project | Python - December 2022</strong>
+                <p>Supervised Learning program using neural networks to predict the genre of music from over 10 genres. Used Pytorch and extracted the data from Kaggle.</p>
+            </li>
         </ul>
     </section>
 
     <section id="work-experience" class="tab-content">
         <h2>Work Experience</h2>
         <div>
-            <h3>Part 1</h3>
-            <p>Description pending</p>
-        </div>
-        <div>
-            <h3>Part 2</h3>
-            <p>Description pending</p>
+            <h3>Behavior Science Research | Data capture and analysis - Aug 2021 - June 2023</h3>
+            <p>Experimented whether a certain protein (NMDA receptor) has a significant effect on alcohol addiction and Parkinson’s disease and presented at a symposium to a panel of experts with PhDs. Lab skills: Maintaining cultures of Drosophila melanogaster, Pipetting experience, Producing research papers.</p>
         </div>
     </section>
 
