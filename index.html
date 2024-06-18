@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venkat Chitturi's Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
             background-color: #f0f8ff; /* Light blue background */
-            color: #333; /* Dark gray text */
         }
         header {
             background-color: #2774AE; /* UCLA Blue */
@@ -30,7 +32,6 @@
             display: flex;
             justify-content: center;
             background-color: #005B99; /* Darker UCLA Blue */
-            margin-bottom: 20px;
         }
         nav a {
             color: white;
@@ -45,10 +46,18 @@
         }
         section {
             padding: 20px;
+            position: relative;
+        }
+        .tab-content {
             display: none;
         }
-        section.active {
+        .tab-content.active {
             display: block;
+            animation: fadeInAnimation 0.5s ease-in forwards;
+        }
+        @keyframes fadeInAnimation {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         h2 {
             color: #2774AE; /* UCLA Blue */
@@ -58,6 +67,7 @@
             margin-right: 20px;
             max-width: 200px;
             height: auto;
+            border-radius: 50%; /* Rounded image */
         }
         .about-text {
             font-size: 18px;
@@ -66,7 +76,7 @@
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: center; /* Center items */
         }
         .skills-list div {
             flex: 1 1 200px;
@@ -74,36 +84,48 @@
             padding: 15px;
             background-color: #e0f7ff; /* Light blue background for skills */
             text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+            transition: transform 0.3s ease;
+        }
+        .skills-list div:hover {
+            transform: translateY(-5px); /* Lift on hover */
         }
         .skills-list div p {
-            margin: 10px 0;
+            margin: 0;
+            font-size: 18px;
             font-weight: bold;
         }
-        .skills-list div button {
+        .skills-list div i {
+            font-size: 24px;
+            color: #2774AE; /* UCLA Blue */
             margin-top: 10px;
-            padding: 8px 16px;
-            background-color: #2774AE; /* UCLA Blue */
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .skills-list div button:hover {
-            background-color: #FFD100; /* UCLA Gold */
-            color: #005B99; /* Darker UCLA Blue */
         }
         .certifications {
-            padding: 20px;
+            margin-top: 20px;
         }
         .certifications ul {
             list-style-type: disc;
             margin-left: 20px;
         }
         .certifications ul li {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+        }
+        .certifications a {
+            color: #2774AE; /* UCLA Blue */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .certifications a:hover {
+            color: #FFD100; /* UCLA Gold */
+        }
+        .gradient-background {
+            background: linear-gradient(135deg, #2774AE, #FFD100); /* Gradient background */
+            color: white; /* Text color */
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
     </style>
     <script>
@@ -111,18 +133,18 @@
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
+                tabcontent[i].style.display = "none";
             }
             tablinks = document.getElementsByClassName("tab");
             for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
         }
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('about').classList.add('active');
-            document.querySelectorAll('nav a')[0].classList.add('active');
+            document.getElementById('about').style.display = 'block';
+            document.querySelectorAll('nav a')[0].className += ' active';
         });
     </script>
 </head>
@@ -138,10 +160,10 @@
         <a href="#" class="tab" onclick="openTab(event, 'projects')">Projects</a>
         <a href="#" class="tab" onclick="openTab(event, 'work-experience')">Work Experience</a>
         <a href="#" class="tab" onclick="openTab(event, 'skills')">Skills</a>
-        <a href="#" class="tab" onclick="openTab(event, 'certifications')">Certifications & Courses</a>
+        <a href="#" class="tab" onclick="openTab(event, 'extra-curriculars')">Extra Curriculars</a>
     </nav>
 
-    <section id="about" class="tab-content">
+    <section id="about" class="tab-content active">
         <h2>About Me</h2>
         <img src="Images/IMG_8597.jpg" alt="Graduation Cap" class="about-image">
         <p class="about-text">Hi, I am Venkat Chitturi, a current student at UCLA, majoring in computer science and double minoring in data science statistics and data science engineering. I started my CS journey in 10th grade, as a bored highschooler tinkering with some code. As I delved more into the field, I created many projects in the fields of App development and AI, as shown by my projects in my project tab. Recently, I have grown heavily interested in cyber security and would like to work in the future in the intersection between cyber security and AI, specifically on how to use AI to find vulnerabilities to create more protected code and the privacy of users of AI. Currently, I am working on multiple AI projects as well as delving into the basics of security. Please do not hesitate to ask any questions at the contact information above!</p>
@@ -195,120 +217,142 @@
         <div class="skills-list">
             <div>
                 <p>Java</p>
+                <i class="fab fa-java"></i>
             </div>
             <div>
                 <p>Mathematica</p>
+                <i class="fab fa-calculator"></i>
             </div>
             <div>
                 <p>Eclipse</p>
+                <i class="fas fa-code"></i>
             </div>
             <div>
                 <p>Visual Studio Code</p>
+                <i class="fas fa-file-code"></i>
             </div>
             <div>
                 <p>Github</p>
+                <i class="fab fa-github"></i>
             </div>
             <div>
                 <p>Atom</p>
+                <i class="fas fa-atom"></i>
             </div>
             <div>
                 <p>Google Sheets, Docs, Drive, Collab</p>
+                <i class="fab fa-google-drive"></i>
             </div>
             <div>
                 <p>Xcode</p>
+                <i class="fab fa-apple"></i>
             </div>
             <div>
                 <p>Tensorflow</p>
+                <i class="fab fa-tensorflow"></i>
             </div>
             <div>
                 <p>Numpy</p>
+                <i class="fab fa-python"></i>
             </div>
             <div>
                 <p>Pandas</p>
-            </div>
-            <div>
-                <p>Operating Systems</p>
-                <p>MacOS, Windows 10</p>
+                <i class="fab fa-python"></i>
             </div>
             <div>
                 <p>GCC</p>
-                <button onclick="openTab(event, 'computer-assembly')">Computer Assembly and Architecture</button>
+                <i class="fas fa-terminal"></i>
+                <button onclick="openTab(event, 'computer-assembly')">Computer Assembly</button>
             </div>
             <div>
                 <p>Javascript</p>
+                <i class="fab fa-js"></i>
                 <button onclick="openTab(event, 'work-experience')">Research at Caltech</button>
             </div>
             <div>
                 <p>CSS</p>
+                <i class="fab fa-css3-alt"></i>
                 <button onclick="openTab(event, 'work-experience')">Research at Caltech</button>
             </div>
             <div>
                 <p>HTML</p>
+                <i class="fab fa-html5"></i>
                 <button onclick="openTab(event, 'work-experience')">Research at Caltech</button>
             </div>
             <div>
                 <p>Figma</p>
+                <i class="fab fa-figma"></i>
                 <button onclick="openTab(event, 'work-experience')">CavnessHR internship</button>
             </div>
             <div>
                 <p>Swift</p>
+                <i class="fab fa-swift"></i>
                 <button onclick="openTab(event, 'work-experience')">CavnessHR internship</button>
             </div>
             <div>
                 <p>C++</p>
+                <i class="fab fa-cuttlefish"></i>
                 <button onclick="openTab(event, 'projects')">GPS Project</button>
             </div>
             <div>
                 <p>A* algorithm</p>
+                <i class="fas fa-star"></i>
                 <button onclick="openTab(event, 'projects')">GPS Project</button>
             </div>
             <div>
                 <p>Data Structures</p>
+                <i class="fas fa-sitemap"></i>
                 <button onclick="openTab(event, 'projects')">GPS Project</button>
             </div>
             <div>
                 <p>OpenCV</p>
+                <i class="fas fa-camera"></i>
                 <button onclick="openTab(event, 'projects')">Drowsy Driving Project</button>
             </div>
             <div>
                 <p>Python</p>
+                <i class="fab fa-python"></i>
                 <button onclick="openTab(event, 'projects')">Music Classification Project</button>
             </div>
             <div>
                 <p>Pytorch</p>
+                <i class="fab fa-python"></i>
                 <button onclick="openTab(event, 'projects')">Music Classification Project</button>
             </div>
             <div>
                 <p>Object Oriented Programming</p>
+                <i class="fas fa-cogs"></i>
                 <button onclick="openTab(event, 'projects')">Marble Madness Project</button>
-            </div>
-            <div>
-                <p>MATLAB</p>
-                <button onclick="openTab(event, 'certifications')">Stanford Machine Learning Certification</button>
             </div>
         </div>
     </section>
 
-    <section id="certifications" class="tab-content">
-        <h2>Certifications & Courses</h2>
+    <section id="extra-curriculars" class="tab-content">
+        <h2>Extra Curriculars</h2>
+        <div>
+            <h3>Bruin Stock Group - Quantitative Stock Analyst</h3>
+            <p>Description pending</p>
+        </div>
+        <div>
+            <h3>ACM.cyber</h3>
+            <p>Description pending</p>
+        </div>
+    </section>
+
+    <section id="computer-assembly" class="tab-content">
+        <h2>Computer Assembly and Architecture</h2>
         <div class="certifications">
-            <h3>Computer Assembly and Architecture</h3>
+            <h3>Certifications and Classes Taken</h3>
             <ul>
                 <li>Control, Procedures, Structures in Assembly</li>
-                <li>x86-64 Architecture: Reading and Writing Assembly</li>
-                <li>MIPS Architecture: Reading and Writing Assembly</li>
-                <li>Return-Oriented Programming and Buffer Overflow</li>
+                <li>x86-64 architecture: reading and writing assembly</li>
+                <li>MIPS architecture: reading and writing assembly</li>
+                <li>Return-oriented programming and buffer overflow</li>
                 <li>Memory, Cache, Compilers, VM, ECF</li>
-                <li>Instruction-Level Parallelism and Parallelism with OpenMP</li>
+                <li>Instruction-level parallelism and parallelism with OpenMP</li>
+                <li>Stanford Machine learning certification</li>
             </ul>
-            <p>Stanford Machine Learning Certification:</p>
-            <ul>
-                <li>Data Preprocessing, Augmentation, Learning Curves</li>
-                <li>Basics of Optimization with Gradient Descent</li>
-                <li>Linear and Logistic Regression</li>
-                <li>Neural Networks</li>
-                <li><a href="https://www.linkedin.com/certificate-url" target="_blank">View Certificate on LinkedIn</a></li>
-            </ul>
+            <p><a href="#">Link to certificate on LinkedIn</a></p>
         </div>
     </section>
 </body>
