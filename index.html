@@ -35,9 +35,6 @@
         section {
             padding: 20px;
         }
-        .tab {
-            display: none;
-        }
         .tab-content {
             display: none;
         }
@@ -46,6 +43,10 @@
         }
         h2 {
             color: #2774AE; /* UCLA Blue */
+        }
+        .about-image {
+            max-width: 100%;
+            height: auto;
         }
     </style>
     <script>
@@ -62,6 +63,10 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('about').style.display = 'block';
+            document.querySelectorAll('nav a')[0].className += ' active';
+        });
     </script>
 </head>
 <body>
@@ -79,9 +84,10 @@
         <a href="#" class="tab" onclick="openTab(event, 'extra-curriculars')">Extra Curriculars</a>
     </nav>
 
-    <section id="about" class="tab-content">
+    <section id="about" class="tab-content active">
         <h2>About Me</h2>
         <p>FILL IN LATER</p>
+        <img src="IMG_8597.jpg" alt="Graduation Cap" class="about-image">
     </section>
 
     <section id="projects" class="tab-content">
