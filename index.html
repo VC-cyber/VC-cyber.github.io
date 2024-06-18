@@ -16,6 +16,14 @@
             color: #FFD100; /* UCLA Gold */
             padding: 20px;
             text-align: center;
+            position: relative;
+        }
+        header img {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: auto;
         }
         nav {
             display: flex;
@@ -45,7 +53,9 @@
             color: #2774AE; /* UCLA Blue */
         }
         .about-image {
-            max-width: 100%;
+            float: left;
+            margin-right: 20px;
+            max-width: 200px;
             height: auto;
         }
     </style>
@@ -72,9 +82,8 @@
 <body>
     <header>
         <h1>Venkat Chitturi</h1>
-        <p>Contact Information</p>
-        <p>School: UCLA</p>
-        <p>Major: Computer Science</p>
+        <p>Contact me anytime at venkatla12@g.ucla.edu</p>
+        <img src="IMG_logo.jpg" alt="Logo">
     </header>
 
     <nav>
@@ -86,8 +95,8 @@
 
     <section id="about" class="tab-content active">
         <h2>About Me</h2>
-        <p>FILL IN LATER</p>
         <img src="IMG_8597.jpg" alt="Graduation Cap" class="about-image">
+        <p>Hi, I am Venkat Chitturi, a current student at UCLA, majoring in computer science and double minoring in data science statistics and data science engineering. I started my CS journey in 10th grade, as a bored highschooler tinkering with some code. As I delved more into the field, I created many projects in the fields of App development and AI, as shown by my projects in my project tab. Recently, I have grown heavily interested in cyber security and would like to work in the future in the intersection between cyber security and AI, specifically on how to use AI to find vulnerabilities to create more protected code and the privacy of users of AI. Currently, I am working on multiple AI projects as well as delving into the basics of security. Please do not hesitate to ask any questions at the contact information above!</p>
     </section>
 
     <section id="projects" class="tab-content">
@@ -114,6 +123,15 @@
 
     <section id="work-experience" class="tab-content">
         <h2>Work Experience</h2>
+        <div>
+            <h3>Research at CalTech’s O'DOHERTY LAB with Dr. Rani Gera - March 2024 - Current</h3>
+            <p>- Understanding how games and quick important decisions can affect mood in patients with depressive disorders</p>
+            <p>- Developing the game software with animations and doing analysis with machine learning after data gathered</p>
+        </div>
+        <div>
+            <h3>CavnessHR software development intern - June 2022 - August 2022</h3>
+            <p>- Implemented an HR app for the company to manage their employee resources using Xcode and Figma</p>
+        </div>
         <div>
             <h3>Behavior Science Research | Data capture and analysis - Aug 2021 - June 2023</h3>
             <p>Experimented whether a certain protein (NMDA receptor) has a significant effect on alcohol addiction and Parkinson’s disease and presented at a symposium to a panel of experts with PhDs. Lab skills: Maintaining cultures of Drosophila melanogaster, Pipetting experience, Producing research papers.</p>
