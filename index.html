@@ -53,21 +53,12 @@
         }
         .tab-content.active {
             display: block;
-            animation: fadeInAnimation 0.5s ease-in forwards;
-        }
-        @keyframes fadeInAnimation {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        h2 {
-            color: #2774AE; /* UCLA Blue */
         }
         .about-image {
             float: left;
             margin-right: 20px;
             max-width: 200px;
             height: auto;
-            border-radius: 50%; /* Rounded image */
         }
         .about-text {
             font-size: 18px;
@@ -76,56 +67,37 @@
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Center items */
+            justify-content: center;
         }
         .skills-list div {
             flex: 1 1 200px;
             margin: 10px;
-            padding: 15px;
+            padding: 10px;
             background-color: #e0f7ff; /* Light blue background for skills */
             text-align: center;
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
         .skills-list div:hover {
-            transform: translateY(-5px); /* Lift on hover */
+            transform: translateY(-5px);
         }
         .skills-list div p {
             margin: 0;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
         }
-        .skills-list div i {
-            font-size: 24px;
-            color: #2774AE; /* UCLA Blue */
+        .skills-list div button {
             margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #2774AE; /* UCLA Blue */
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        .certifications {
-            margin-top: 20px;
-        }
-        .certifications ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-        .certifications ul li {
-            margin-bottom: 5px;
-        }
-        .certifications a {
-            color: #2774AE; /* UCLA Blue */
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .certifications a:hover {
-            color: #FFD100; /* UCLA Gold */
-        }
-        .gradient-background {
-            background: linear-gradient(135deg, #2774AE, #FFD100); /* Gradient background */
-            color: white; /* Text color */
-            padding: 20px;
-            text-align: center;
-            border-radius: 10px;
-            margin-bottom: 20px;
+        .skills-list div button:hover {
+            background-color: #FFD100; /* UCLA Gold */
+            color: #005B99; /* Darker UCLA Blue */
         }
     </style>
     <script>
@@ -142,6 +114,18 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
+
+        function openCertificationsAndScroll(tabName) {
+            // Switch to the certifications and classes tab
+            openTab(event, 'certifications-classes');
+
+            // Scroll to the specified section
+            var element = document.getElementById(tabName);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('about').style.display = 'block';
             document.querySelectorAll('nav a')[0].className += ' active';
@@ -160,7 +144,7 @@
         <a href="#" class="tab" onclick="openTab(event, 'projects')">Projects</a>
         <a href="#" class="tab" onclick="openTab(event, 'work-experience')">Work Experience</a>
         <a href="#" class="tab" onclick="openTab(event, 'skills')">Skills</a>
-        <a href="#" class="tab" onclick="openTab(event, 'extra-curriculars')">Extra Curriculars</a>
+        <a href="#" class="tab" onclick="openTab(event, 'certifications-classes')">Certifications & Classes</a>
     </nav>
 
     <section id="about" class="tab-content active">
@@ -217,113 +201,122 @@
         <div class="skills-list">
             <div>
                 <p>Java</p>
-                <i class="fab fa-java"></i>
             </div>
             <div>
                 <p>Mathematica</p>
-                <i class="fab fa-calculator"></i>
             </div>
             <div>
                 <p>Eclipse</p>
-                <i class="fas fa-code"></i>
             </div>
             <div>
                 <p>Visual Studio Code</p>
-                <i class="fas fa-file-code"></i>
             </div>
             <div>
                 <p>Github</p>
-                <i class="fab fa-github"></i>
             </div>
             <div>
                 <p>Atom</p>
-                <i class="fas fa-atom"></i>
             </div>
             <div>
                 <p>Google Sheets, Docs, Drive, Collab</p>
-                <i class="fab fa-google-drive"></i>
             </div>
             <div>
                 <p>Xcode</p>
-                <i class="fab fa-apple"></i>
             </div>
             <div>
                 <p>Tensorflow</p>
-                <i class="fab fa-tensorflow"></i>
             </div>
             <div>
                 <p>Numpy</p>
-                <i class="fab fa-python"></i>
             </div>
             <div>
                 <p>Pandas</p>
-                <i class="fab fa-python"></i>
             </div>
             <div>
                 <p>GCC</p>
-                <i class="fas fa-terminal"></i>
-                <button onclick="openTab(event, 'computer-assembly')">Computer Assembly</button>
+                <button onclick="openCertificationsAndScroll('computer-assembly')">Computer Assembly</button>
             </div>
             <div>
                 <p>Javascript</p>
-                <i class="fab fa-js"></i>
                 <button onclick="openTab(event, 'work-experience')">Research at Caltech</button>
             </div>
             <div>
                 <p>CSS</p>
-                <i class="fab fa-css3-alt"></i>
                 <button onclick="openTab(event, 'work-experience')">Research at Caltech</button>
             </div>
             <div>
                 <p>HTML</p>
-                <i class="fab fa-html5"></i>
                 <button onclick="openTab(event, 'work-experience')">Research at Caltech</button>
             </div>
             <div>
                 <p>Figma</p>
-                <i class="fab fa-figma"></i>
                 <button onclick="openTab(event, 'work-experience')">CavnessHR internship</button>
             </div>
             <div>
                 <p>Swift</p>
-                <i class="fab fa-swift"></i>
                 <button onclick="openTab(event, 'work-experience')">CavnessHR internship</button>
             </div>
             <div>
                 <p>C++</p>
-                <i class="fab fa-cuttlefish"></i>
                 <button onclick="openTab(event, 'projects')">GPS Project</button>
             </div>
             <div>
                 <p>A* algorithm</p>
-                <i class="fas fa-star"></i>
                 <button onclick="openTab(event, 'projects')">GPS Project</button>
             </div>
             <div>
                 <p>Data Structures</p>
-                <i class="fas fa-sitemap"></i>
                 <button onclick="openTab(event, 'projects')">GPS Project</button>
             </div>
             <div>
                 <p>OpenCV</p>
-                <i class="fas fa-camera"></i>
                 <button onclick="openTab(event, 'projects')">Drowsy Driving Project</button>
             </div>
             <div>
                 <p>Python</p>
-                <i class="fab fa-python"></i>
                 <button onclick="openTab(event, 'projects')">Music Classification Project</button>
             </div>
             <div>
                 <p>Pytorch</p>
-                <i class="fab fa-python"></i>
                 <button onclick="openTab(event, 'projects')">Music Classification Project</button>
             </div>
             <div>
                 <p>Object Oriented Programming</p>
-                <i class="fas fa-cogs"></i>
                 <button onclick="openTab(event, 'projects')">Marble Madness Project</button>
             </div>
+            <div>
+                <p>Operating Systems</p>
+                <button onclick="openCertificationsAndScroll('computer-assembly')">Computer Assembly</button>
+            </div>
+            <div>
+                <p>MATLAB</p>
+                <button onclick="openTab(event, 'certifications-classes')">Stanford Machine Learning Certification</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications-classes" class="tab-content">
+        <h2>Certifications & Classes</h2>
+        <div id="computer-assembly">
+            <h3>Computer Assembly and Architecture</h3>
+            <ul>
+                <li>Control, Procedures, Structures in Assembly</li>
+                <li>x86-64 architecture: reading and writing assembly</li>
+                <li>MIPS architecture: reading and writing assembly</li>
+                <li>Return-oriented programming and buffer overflow</li>
+                <li>Memory, Cache, Compilers, VM, ECF</li>
+                <li>Instruction-level parallelism and parallelism with OpenMP</li>
+            </ul>
+        </div>
+        <div id="machine-learning">
+            <h3>Stanford Machine Learning Certification</h3>
+            <ul>
+                <li>Data preprocessing, augmentation, learning curves</li>
+                <li>Basics of optimization with gradient descent</li>
+                <li>Linear and logistic regression</li>
+                <li>Neural networks</li>
+                <li><a href="#">Link to certificate on LinkedIn</a></li>
+            </ul>
         </div>
     </section>
 
@@ -336,23 +329,6 @@
         <div>
             <h3>ACM.cyber</h3>
             <p>Description pending</p>
-        </div>
-    </section>
-
-    <section id="computer-assembly" class="tab-content">
-        <h2>Computer Assembly and Architecture</h2>
-        <div class="certifications">
-            <h3>Certifications and Classes Taken</h3>
-            <ul>
-                <li>Control, Procedures, Structures in Assembly</li>
-                <li>x86-64 architecture: reading and writing assembly</li>
-                <li>MIPS architecture: reading and writing assembly</li>
-                <li>Return-oriented programming and buffer overflow</li>
-                <li>Memory, Cache, Compilers, VM, ECF</li>
-                <li>Instruction-level parallelism and parallelism with OpenMP</li>
-                <li>Stanford Machine learning certification</li>
-            </ul>
-            <p><a href="#">Link to certificate on LinkedIn</a></p>
         </div>
     </section>
 </body>
