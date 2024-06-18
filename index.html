@@ -58,6 +58,33 @@
             max-width: 200px;
             height: auto;
         }
+        .about-text {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .skills-list div {
+            flex: 1 1 200px;
+            margin: 10px;
+            padding: 10px;
+            background-color: #e0f7ff; /* Light blue background for skills */
+            text-align: center;
+        }
+        .skills-list div button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #2774AE; /* UCLA Blue */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .skills-list div button:hover {
+            background-color: #FFD100; /* UCLA Gold */
+            color: #005B99; /* Darker UCLA Blue */
+        }
     </style>
     <script>
         function openTab(evt, tabName) {
@@ -83,20 +110,21 @@
     <header>
         <h1>Venkat Chitturi</h1>
         <p>Contact me anytime at venkatla12@g.ucla.edu</p>
-        <img src="IMG_logo.jpg" alt="Logo">
+        <img src="Images/IMG_logo.jpg" alt="Logo">
     </header>
 
     <nav>
         <a href="#" class="tab" onclick="openTab(event, 'about')">About Me</a>
         <a href="#" class="tab" onclick="openTab(event, 'projects')">Projects</a>
         <a href="#" class="tab" onclick="openTab(event, 'work-experience')">Work Experience</a>
+        <a href="#" class="tab" onclick="openTab(event, 'skills')">Skills</a>
         <a href="#" class="tab" onclick="openTab(event, 'extra-curriculars')">Extra Curriculars</a>
     </nav>
 
     <section id="about" class="tab-content active">
         <h2>About Me</h2>
-        <img src="IMG_8597.jpg" alt="Graduation Cap" class="about-image">
-        <p>Hi, I am Venkat Chitturi, a current student at UCLA, majoring in computer science and double minoring in data science statistics and data science engineering. I started my CS journey in 10th grade, as a bored highschooler tinkering with some code. As I delved more into the field, I created many projects in the fields of App development and AI, as shown by my projects in my project tab. Recently, I have grown heavily interested in cyber security and would like to work in the future in the intersection between cyber security and AI, specifically on how to use AI to find vulnerabilities to create more protected code and the privacy of users of AI. Currently, I am working on multiple AI projects as well as delving into the basics of security. Please do not hesitate to ask any questions at the contact information above!</p>
+        <img src="Images/IMG_8597.jpg" alt="Graduation Cap" class="about-image">
+        <p class="about-text">Hi, I am Venkat Chitturi, a current student at UCLA, majoring in computer science and double minoring in data science statistics and data science engineering. I started my CS journey in 10th grade, as a bored highschooler tinkering with some code. As I delved more into the field, I created many projects in the fields of App development and AI, as shown by my projects in my project tab. Recently, I have grown heavily interested in cyber security and would like to work in the future in the intersection between cyber security and AI, specifically on how to use AI to find vulnerabilities to create more protected code and the privacy of users of AI. Currently, I am working on multiple AI projects as well as delving into the basics of security. Please do not hesitate to ask any questions at the contact information above!</p>
     </section>
 
     <section id="projects" class="tab-content">
@@ -105,18 +133,22 @@
             <li>
                 <strong>Drowsy Driving Detection project | Python - March 2022</strong>
                 <p>Program to detect if a driver is alert and awake using computer vision. OpenCV was used to scan facial landmarks of the driver’s face to determine if they are drowsy.</p>
+                <p><strong>Skills:</strong> Python, OpenCV</p>
             </li>
             <li>
-                <strong>Classifying handwritten digits | Python - December 2023</strong>
-                <p>Program with a 98% accuracy to classify a digit 0-9 created using a CNN in python. Using the MNIST dataset and had to finetune the hyperparameters to maximize accuracy.</p>
+                <strong>Marble Madness - March 2023</strong>
+                <p>Made a game in C++ where the main avatar has to survive against robots and get all the crystals to beat the game. Cannot win past level 2 (made the game way too hard).</p>
+                <p><strong>Skills:</strong> C++, Object Oriented Programming</p>
             </li>
             <li>
                 <strong>GPS of Los Angeles | C++ - March 2024</strong>
                 <p>Created my own hashmap objects and used the A* algorithm to create a GPS from major locations in LA area. Created a tour generator with major locations so the program describes from start to destination all the major locations I go through with their respective descriptions.</p>
+                <p><strong>Skills:</strong> C++, A* algorithm, Data Structures</p>
             </li>
             <li>
                 <strong>Music classifier project | Python - December 2022</strong>
                 <p>Supervised Learning program using neural networks to predict the genre of music from over 10 genres. Used Pytorch and extracted the data from Kaggle.</p>
+                <p><strong>Skills:</strong> Python, Pytorch</p>
             </li>
         </ul>
     </section>
@@ -138,9 +170,118 @@
         </div>
     </section>
 
+    <section id="skills" class="tab-content">
+        <h2>Skills</h2>
+        <div class="skills-list">
+            <div>
+                <p>Java</p>
+            </div>
+            <div>
+                <p>Mathematica</p>
+            </div>
+            <div>
+                <p>Eclipse</p>
+            </div>
+            <div>
+                <p>Visual Studio Code</p>
+            </div>
+            <div>
+                <p>Github</p>
+            </div>
+            <div>
+                <p>Atom</p>
+            </div>
+            <div>
+                <p>Google Sheets, Docs, Drive, Collab</p>
+            </div>
+            <div>
+                <p>Xcode</p>
+            </div>
+            <div>
+                <p>Tensorflow</p>
+            </div>
+            <div>
+                <p>Numpy</p>
+            </div>
+            <div>
+                <p>Pandas</p>
+            </div>
+            <div>
+                <p>GCC</p>
+            </div>
+            <div>
+                <p>Javascript</p>
+                <button onclick="openTab(event, 'work-experience')">Research at Caltech</button>
+            </div>
+            <div>
+                <p>CSS</p>
+                <button onclick="openTab(event, 'work-experience')">Research at Caltech</button>
+            </div>
+            <div>
+                <p>HTML</p>
+                <button onclick="openTab(event, 'work-experience')">Research at Caltech</button>
+            </div>
+            <div>
+                <p>Figma</p>
+                <button onclick="openTab(event, 'work-experience')">CavnessHR internship</button>
+            </div>
+            <div>
+                <p>Swift</p>
+                <button onclick="openTab(event, 'work-experience')">CavnessHR internship</button>
+            </div>
+            <div>
+                <p>C++</p>
+                <button onclick="openTab(event, 'projects')">GPS Project</button>
+            </div>
+            <div>
+                <p>A* algorithm</p>
+                <button onclick="openTab(event, 'projects')">GPS Project</button>
+            </div>
+            <div>
+                <p>Data Structures</p>
+                <button onclick="openTab(event, 'projects')">GPS Project</button>
+            </div>
+            <div>
+                <p>OpenCV</p>
+                <button onclick="openTab(event, 'projects')">Drowsy Driving Project</button>
+            </div>
+            <div>
+                <p>Python</p>
+                <button onclick="openTab(event, 'projects')">Music Classification Project</button>
+            </div>
+            <div>
+                <p>Pytorch</p>
+                <button onclick="openTab(event, 'projects')">Music Classification Project</button>
+            </div>
+            <div>
+                <p>Object Oriented Programming</p>
+                <button onclick="openTab(event, 'projects')">Marble Madness Project</button>
+            </div>
+        </div>
+    </section>
+
     <section id="extra-curriculars" class="tab-content">
         <h2>Extra Curriculars</h2>
-        <p>Description pending</p>
+        <div>
+            <h3>Bruin Stock Group - Quantitative Stock Analyst</h3>
+            <p>Description pending</p>
+        </div>
+        <div>
+            <h3>ACM.cyber</h3>
+            <p>Description pending</p>
+        </div>
+        <div>
+            <h3>Going to gym</h3>
+            <p>Description pending</p>
+        </div>
+        <div>
+            <h3>Stocks</h3>
+            <p>Description pending</p>
+        </div>
+        <div>
+            <h3>Listening to music</h3>
+            <p>Description pending</p>
+        </div>
     </section>
 </body>
 </html>
